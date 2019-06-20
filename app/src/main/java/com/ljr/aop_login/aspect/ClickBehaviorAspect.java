@@ -48,7 +48,6 @@ public class ClickBehaviorAspect {
         Log.e(TAG, "ClickBehavior Method End >>> ");
         Log.e(TAG, String.format("统计了：%s功能，在%s类的%s方法，用时%d ms",
                 funName, className, methodName, duration));
-
         return result;
     }
 }
