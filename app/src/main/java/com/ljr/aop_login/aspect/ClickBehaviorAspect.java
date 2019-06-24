@@ -42,12 +42,12 @@ public class ClickBehaviorAspect {
 
         //统计方法的执行时间、统计用户点击某功能行为。（存储到本地,每过X天上传到服务器）
         long begin = System.currentTimeMillis();
-        Log.e(TAG, "ClickBehavior Method Start >>> ");
+        Log.e(TAG, "ClickBehavior Method Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         Object result = joinPoint.proceed(); // MainActivity中切面的方法
         long duration = System.currentTimeMillis() - begin;
-        Log.e(TAG, "ClickBehavior Method End >>> ");
         Log.e(TAG, String.format("统计了：%s功能，在%s类的%s方法，用时%d ms",
                 funName, className, methodName, duration));
+        Log.e(TAG, "ClickBehavior Method End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         return result;
     }
 }

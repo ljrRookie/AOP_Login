@@ -6,11 +6,16 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ljr.aop_login.LoginActivity;
+import com.ljr.aop_login.annotation.ClickBehavior;
+import com.ljr.aop_login.annotation.LoginCheck;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 
+@Aspect //定以切面类
 public class LoginCheckAspect {
     private static final String TAG = LoginCheckAspect.class.getSimpleName();
 
@@ -24,7 +29,8 @@ public class LoginCheckAspect {
     @Around("methodPointCut()")
     public Object jointPotin(ProceedingJoinPoint joinPoint) throws Throwable {
         Context context = (Context) joinPoint.getThis();
-        if (false) { // 从SharedPreferences中读取
+
+        if (true) { // 从SharedPreferences中读取登录状态
             Log.e(TAG, "检测到已登录！");
             return joinPoint.proceed();
         } else {
